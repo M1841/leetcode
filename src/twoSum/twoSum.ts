@@ -10,6 +10,7 @@ function twoSum(nums: number[], target: number): number[] {
     let hashTable: {
         [key: number]: number;
     } = {};
+
     for (let i = 0; i < nums.length; i++) {
         if (target - nums[i] in hashTable) {
             return [hashTable[target - nums[i]], i];
@@ -17,6 +18,7 @@ function twoSum(nums: number[], target: number): number[] {
             hashTable[nums[i]] = i;
         }
     }
+
     return [];
 }
 
