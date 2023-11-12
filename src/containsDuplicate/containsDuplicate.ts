@@ -7,13 +7,13 @@
 // Space Complexity: O(n)
 
 function containsDuplicate(nums: number[]): boolean {
-    const set = new Set<number>();
+    const occurences = new Set<number>();
 
     for (let i = 0; i < nums.length; i++) {
-        if (set.has(nums[i])) {
+        if (occurences.has(nums[i])) {
             return true;
         } else {
-            set.add(nums[i]);
+            occurences.add(nums[i]);
         }
     }
 

@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/valid-anagram/
+// https://leetcode.com/problems/group-anagrams/
 // Solved: 12.11.2023
 // 120/120 test cases passed
 // Runtime: 90ms (Top 1.73% for Typescript)
@@ -7,18 +7,20 @@
 // Space Complexity: O(n)
 
 function groupAnagrams(strings: string[]): string[][] {
-    let map = new Map();
+    let hashTable: {
+        [key: string]: string[];
+    } = {};
 
     for (let str of strings) {
         let key = [...str].sort().join("");
-        if (map.has(key)) {
-            map.get(key).push(str);
+        if (key in hashTable) {
+            hashTable[key].push(str);
         } else {
-            map.set(key, [str]);
+            hashTable[key] = [str];
         }
     }
 
-    return [...map.values()];
+    return Object.values(hashTable);
 }
 
 export { groupAnagrams };
